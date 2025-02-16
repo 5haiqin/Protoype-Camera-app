@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera App</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Camera App</h1>
+    <div class="container">
+        <img src="{{ url_for('video_feed') }}" id="video_feed">
+        <div class="controls">
+            <button onclick="capture()">Take Snapshot</button>
+            <button onclick="toggleRecording()" id="recordBtn">Start Recording</button>
+        </div>
+        <div id="status" class="status-message"></div>
+    </div>
+
+    <script>
+        let isRecording = false;
+        
+        async function capture() {
+            const status = document.getElementById('status');
+            try {
+                const response = await fetch('/capture', { method: 'POST' });
+                const message = await response.text();
+                status.innerHTML = message;
+                setTimeout(() => status.innerHTML = '', 3000);
+            } catch (error) {
+                status.innerHTML = '❌ Error saving photo!';
+                setTimeout(() => status.innerHTML = '', 3000);
+            }
+        }
+
+        async function toggleRecording() {
+            const status = document.getElementById('status');
+            const btn = document.getElementById('recordBtn');
+            try {
+                const response = await fetch('/record', { method: 'POST' });
+                const message = await response.text();
+                status.innerHTML = message;
+                setTimeout(() => status.innerHTML = '', 3000);
+                isRecording = !isRecording;
+                btn.innerHTML = isRecording ? "⏹️ Stop Recording" : "⏺️ Start Recording";
+            } catch (error) {
+                status.innerHTML = '❌ Recording error!';
+                setTimeout(() => status.innerHTML = '', 3000);
+            }
+        }
+    </script>
+</body>
+</html>
