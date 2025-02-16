@@ -42,10 +42,13 @@ The Prototype Camera App is a web-based application that enables users to captur
 ```
 Protoype-Camera-app/
 │-- app.py               # Main Flask application file
+│-- requirements.txt     # Dependencies list
 │-- static/
 │   └── style.css        # CSS file for styling
 │-- templates/
-│   └── index.html       # Main HTML template
+│   ├── index.html       # Main HTML template
+│   ├── snapshots.html   # Page to view snapshots
+│   └── recordings.html  # Page to view recordings
 │-- snapshots/           # Directory where captured images are stored
 │-- recordings/          # Directory where recorded videos are stored
 ```
@@ -74,3 +77,12 @@ Contributions are welcome! To contribute:
    ```bash
    git push origin feature-branch
    ```
+5. Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For any inquiries or issues, please open an issue on the repository or contact the maintainer.
