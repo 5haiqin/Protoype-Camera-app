@@ -46,9 +46,7 @@ Protoype-Camera-app/
 │-- static/
 │   └── style.css        # CSS file for styling
 │-- templates/
-│   ├── index.html       # Main HTML template
-│   ├── snapshots.html   # Page to view snapshots
-│   └── recordings.html  # Page to view recordings
+│   └── index.html       # Main HTML template
 │-- snapshots/           # Directory where captured images are stored
 │-- recordings/          # Directory where recorded videos are stored
 ```
